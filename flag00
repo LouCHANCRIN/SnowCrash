@@ -1,0 +1,8 @@
+find / -user flag00 2>/dev/null
+find / -user flag00 will look for all files related to user flag00.
+2>/dev/null will redirect error messages.
+The command find 2 files.
+We look at what's inside the file.
+The password need to be translated using the caesar encryption.
+Looking at the results for all encryption, one of them seems logical : nottoohardhere.
+getflag result : x24ti5gi3x0ol2eh4esiuxias
