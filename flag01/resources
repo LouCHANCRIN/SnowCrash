@@ -1,0 +1,5 @@
+Check the /etc/passwd folder
+Encrypted password for user flag01 is visible and is 42hDRfypTqqnw
+Install john the ripper with command 'sudo apt-get install john'
+Launch the password cracking with command '/usr/sbin/john --show file_with_encrypted_passwd.txt'
+Password given by john the ripper is '?:abcdefg'
