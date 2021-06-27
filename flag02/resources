@@ -1,0 +1,22 @@
+Download pcap file with scp
+scp -P 4242 level02@192.168.1.78:~/level02.pcap .
+Open it with wireshark and click on Analyser > Suivre > Flux TCP
+The result is: 
+    ..%..%..&..... ..#..'..$..&..... ..#..'..$.. .....#.....'........... .38400,38400....#.SodaCan:0....'..DISPLAY.SodaCan:0......xterm.........."........!........"..".....b........b....	B.
+    ..............................1.......!.."......"......!..........."........"..".............	..
+    .....................
+    Linux 2.6.38-8-generic-pae (::ffff:10.1.1.2) (pts/10)
+
+    ..wwwbugs login: l.le.ev.ve.el.lX.X
+    ..
+    Password: ft_wandr...NDRel.L0L
+    .
+    ..
+    Login incorrect
+    wwwbugs login: 
+
+The password ft_wandr...NDRel.L0L but when we show data as utf-8 instead of ascii we can see that the points are actually whitespaces.
+Then we show it as hexdump and we notice that the hex code is 7f which correspond to DEL in man ascii.
+
+The password is : ft_waNDReL0L
+The flag is : kooda2puivaav1idi4f57q8iq
