@@ -15,7 +15,7 @@ The result is:
     Login incorrect
     wwwbugs login: 
 
-The password ft_wandr...NDRel.L0L but when we show data as utf-8 instead of ascii we can see that the points are actually whitespaces.
+The password is ft_wandr...NDRel.L0L but when we show data as utf-8 instead of ascii we can see that the points are actually whitespaces.
 Then we show it as hexdump and we notice that the hex code is 7f which correspond to DEL in man ascii.
 
 The password is : ft_waNDReL0L

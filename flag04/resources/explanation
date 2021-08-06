@@ -1,0 +1,26 @@
+There is a file named level04.pl which is a perl script
+
+'''
+#!/usr/bin/perl
+# localhost:4747
+use CGI qw{param};
+print "Content-type: text/html\n\n";
+sub x {
+  $y = $_[0];
+  print `echo $y 2>&1`;
+}
+x(param("x"));
+'''
+
+We can see that the script is using CGI. Its used to run a perl script via a web server. We can see that we the server is 'localhost:4747' in the comment.
+'sub' means subroutine in perl. It is how functions are declared.
+Here we have a function called x and on the last line we can see that we call the subroutine x with param('x').
+Param comes from the CGI library and it will be used to get the values of parameters with corresponding name, here we have 'param(x)' in the function call.
+Now for the function itself, the arguments are passed in a table called '$_'.
+'$_[0]' is the first parameter that is passed to the function and the command `echo $y 2>&1` will be launched with $y = $_[0].
+So now we can try to make a call to the server and passing it an argument called x (x because param expect an argument called x in the function call).
+When trying "~$ curl 'http://localhost:4747?x=getflag'" we just have a 'getflag' printed.
+In shell, $(x) is a command substitution. It runs the command and return its output.
+So when we pass 'x=getflag' we just echo 'getflag' but what we want is the result of the function call.
+We try "~$ curl 'http://localhost:4747?x=$(getflag)'".
+This time we get the result of the function getflag : Check flag.Here is your token : ne2searoevaevoem4ov4ar8ap

@@ -5,7 +5,7 @@ We export the $PATH to tmp to be able to add a file.
 
 $ export PATH="/tmp:$PATH"
 
-Before exporting, the $PATH is "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games".
+When typing '/usr/bin/env' or '$PATH', the PATH is "/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games".
 When we write a command, the shell will search for the executable file in the $PATH.
 It will start looking in "/usr/local/sbin", then "/usr/local/bin"...
 After the export, the $PATH is "/tmp:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games".
