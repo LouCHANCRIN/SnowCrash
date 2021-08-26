@@ -1,0 +1,9 @@
+There is a message when logging in saying "You got a new mail" which seems to be a message from a cronjob.
+After searching in /var/mail we can see a file named level05.
+The script is running a cron job defined in /usr/sbin/openarenaserver.
+The script /usr/sbin/openarenaserver is executing and then deleting all the script in /opt/openarenaserver.
+All we have to do is to create a script that will execute getflag and store the result somewhere we can read it.
+
+echo 'getflag > /tmp/flag' > /opt/openarenaserver/script
+
+Then we have to wait for the cript to be executed and do a 'cat /tmp/flag'

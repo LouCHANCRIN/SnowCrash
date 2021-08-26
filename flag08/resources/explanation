@@ -1,0 +1,10 @@
+We can see two files. One binary and one file named token.
+
+We try to do 'cat token' but permission is denied.
+When we execute the binary with './level08' we can see './level08 [file to read]'.
+So we can see that the binary print the content of the file given as argument.
+We try './level08 token' but we have a message "You may not access 'token'".
+We create a symbolic link on token file with 'ln -s ~/token /tmp/link'.
+We then execute the binary with the link : './level08 /tmp/link'.
+We got the token but not the flag yet.
+We do 'su flag08' using the token as password and then launch getflag.
