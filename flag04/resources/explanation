@@ -12,7 +12,7 @@ sub x {
 x(param("x"));
 '''
 
-We can see that the script is using CGI. Its used to run a perl script via a web server. We can see that we the server is 'localhost:4747' in the comment.
+We can see that the script is using CGI. Its used to run a perl script via a web server. We can see that the server is 'localhost:4747' in the comment.
 'sub' means subroutine in perl. It is how functions are declared.
 Here we have a function called x and on the last line we can see that we call the subroutine x with param('x').
 Param comes from the CGI library and it will be used to get the values of parameters with corresponding name, here we have 'param(x)' in the function call.

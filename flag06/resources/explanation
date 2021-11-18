@@ -22,7 +22,7 @@ print $r;
 
 The executable file requires a file to pass to the php script.
 It will read the file content and make it go thourgh a lot of regex.
-Our goal is to find an initial value that will give execute 'getflag' after all the regex have been applied and store it in a file.
+Our goal is to find an initial value that will execute 'getflag' after all the regex have been applied and store it in a file.
 The first regex use '/e' which run the 'eval' function which execute a string as a php script.
 So we want to pass a php script that will execute getflag and we will do that with 'exec'.
 We will pass '[x {${exec(getflag)}}]' so that the regex find a match and execute the string.
